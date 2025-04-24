@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Produk Lapis Kukus</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f7f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .slide2{
+      background-color: rgb(247, 233, 233);
+    }
+
+    .slide3{
+      background-color: rgb(253, 249, 249);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 5px 30px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      height: 10vh;
+      min-height: 60px;
+    }
+
+    .sticky-header{
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.4); /* Putih transparan */
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000; /* Supaya di atas konten lain */
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 100px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 2em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #f6c2c2;
+      color: #273c75;
+      border-radius: 20px;
+    }
+
+    #searchInput {
+      border-radius: 15px;
+      border: 1px solid #dd4343;
+      padding: 8px;
+      width: 500px;
+      height: 45px;
+    }
+
+    .btn-outline-success{
+      
+      border-radius: 10px;
+      height: 40px;
+      display: flex;
+      gap: 120px;
+    }
+
+		.carousel {
+			flex: 1;
+			min-width: 30%;
+			max-width: 10%;
+			border-radius: 12px;
+			
+		}
+		
+		.carousel img {
+			height: 100%;
+			object-fit: cover;
+		}
+
+    .carousel-item.active img {
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .carousel-item.active:hover{
+      animation: geserKanan 0.5s forwards;
+    }
+
+    @keyframes geserKanan {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(10px);
+      }
+    }
+
+    .outlet {
+			
+      width: 100%;
+      padding: 0px 0px;
+      background-color: #f7f2f2;
+    }
+
+    .outlet-content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+  
+    .text-left {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .text-left h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 60px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .text-left p {
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 50px;
+      color: #673c3c;
+    }
+
+    .list-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 20px;
+      justify-content: flex-start;
+    }
+
+    h2{
+      color: rgb(0, 0, 0);
+      padding: 6%;
+      font-weight: bold;
+      font-size: 60px;
+      text-align: center;
+      font-family: 'Anton', sans-serif;
+      font-size: bold;
+    }
+    
+
+    h3{
+      color: rgb(121, 15, 15);
+      padding: 4%;
+      font-size: 60px;
+      text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: bold;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+      margin: 40px auto;
+    }
+    
+    .menu-link {
+      padding: 40px 130px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #000;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      background-color: #f5f5f5;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .menu-link:hover {
+      background-color: red;
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    
+
+    h4{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 60px;
+      padding-top: 3%;
+    }
+
+
+    .produk {
+      margin-left: 50px;
+      margin-right: 50px;
+      width: 350px;
+      border: 1px solid white;
+      padding: 0px;
+      border-radius: 10px;
+      background-color: white;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .produk .terlaris{
+      background-color: red;
+      width: 160px;
+      color: white;
+      border:1px solid #dd4343;
+      font-size: 25px;
+      text-align: start;
+      padding-left: 20px;
+    }
+
+    .produk:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .produk img {
+      object-fit: cover;
+      max-width: 100%;
+  
+    }
+
+    .highlight {
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+      display: block; /* supaya margin bisa bekerja kalau di dalam <span> */
+    }
+
+   .reguler{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+   }
+
+   .produk-reguler{
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(238, 29, 123, 0.3);
+    width: 600px;
+    padding-bottom: 150px;
+    overflow: hidden;
+   }
+
+   .produk-reguler img{
+    justify-content: center;
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 0 10px rgba(238, 29, 123, 0.3);
+   }
+
+   .produk-reguler p{
+    text-align: center;
+   }
+
+   .produk-reguler{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+   }
+
+   .produk-reguler:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Batasi lebar carousel dan posisikan di tengah */
+#regulerCarousel {
+  max-width: 1500px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ukuran gambar agar pas */
+#regulerCarousel .carousel-item img {
+  max-width: 400px;
+  max-height: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Teks di bawah gambar */
+#regulerCarousel .carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  border-radius: 6px;
+  bottom: 10px;
+}
+
+/* Teks dalam caption */
+#regulerCarousel .carousel-caption p {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+}
+
+#regulerCarousel .carousel-control-prev-icon,
+#regulerCarousel .carousel-control-next-icon {
+  filter: invert(1); /* Ubah putih jadi hitam */
+}
+  
+  </style>
+</head>
+<body>
+
+  <header class="sticky-header">
+    <div class="logo-title">
+      <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <nav>
+      <ul>
+        <input type="text" id="searchInput" placeholder="Cari produk...">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <li><a href="beranda.html">Home</a></li>
+        <li><a href="pageProduk.html">Product</a></li>
+        <li><a href="#">Promo</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="#" style="color: red;">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Banner dengan teks -->
+   
+  </section>
+    <section class="outlet">
+			
+      <div class="outlet-content">
+        <div id="carouselExampleCaptions" class="carousel slide">
+          <div class="carousel-indicator">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="banner1.png" class="d-block w-100" alt="banner">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="banner2.jpg" class="d-block w-100" alt="banner">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="banner3.png" class="d-block w-100" alt="banner">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <div class="text-left">
+          <h1>Tempat Terbaik Membawa Pulang Oleh-oleh<br> Kebanggaan Kota Malang</h1>
+          <p>Dari kelembutan setiap lapisan, hingga rasa yang khas,<br>
+            kami hadir untuk menemani momen manismu bersama orang tersayang.</p>
+        </div>
+      </div>
+    </section>
+  
+
+    <!-- Daftar produk -->
+    <section class="slide2">
+      <h3> OUR PRODUCT<br> Lapis Kukus Tugu Malang</h3>
+ 
+      <ul class="menu-container">
+        <li><a href="#lapiskukus" class="menu-link active">Lapis Kukus</a></li>
+        <li><a href="bakpiabakar.html" class="menu-link">Bakpia Bakar</a></li>
+        <li><a href="bakpiakukus.html" class="menu-link">Bakpia Kukus</a></li>
+      </ul>
+      <h4 style="padding-left: 20px;">Kemasan Large</h4>
+      <div class="list-container">
+        <!-- Ulangi produk -->
+        <!-- Kamu bisa ganti gambar dan teks sesuai kebutuhan -->
+        <div id="#lapiskukus" class="produk">
+          <img src="produk1.png" alt="produk lapis 2">
+          <p>Lapis Kukus Varian Durian <br>menawarkan aroma harum dan rasa legit durian yang khas
+           <br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk2.png" alt="produk lapis 2">
+          <p>Lapis Kukus Varian Brownies Coklat<br>
+            Rasa coklat yang gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk3.png" alt="produk lapis 2">
+          <p class="terlaris">Terlaris⭐5</p>
+          <p>Lapis Kukus Varian Brownies Tiramisu<br>
+            Rasa manis perpaduan coklat.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk4.png" alt="produk lapis 2">
+          <p>Lapis Kukus Varian Talas Keju<br>
+            Rasa keju gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk5.png" alt="produk lapis 2">
+          <p>Lapis Kukus Varian Brownies Ori<br>
+            Rasa manis dan creamy<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk6.png" alt="produk lapis 2">
+          <p class="terlaris">Baru</p>
+          <p>Lapis Kukus Varian Avocado<br>
+            Rasa manis avocado dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk7.png" alt="produk lapis 2">
+          <p>Lapis Kukus Varian Ting-ting Kacang<br>
+            Rasa kacnag gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk8.png" alt="produk lapis 2">
+          <p class="terlaris">Terlaris⭐5</p>
+          <p>Lapis Kukus Tugu Malang <br>
+            Rasa keju gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk9.png" alt="produk lapis 2">
+          <p>Lapis Kukus Tugu Malang <br>
+            Varian Cheese<br>
+            Rasa keju gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk10.png" alt="produk lapis 2">
+          <p>Lapis Kukus Tugu Malang <br>
+            Varian Cheese<br>
+            Rasa keju gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk11.png" alt="produk lapis 2">
+          <p>Lapis Kukus Tugu Malang <br>
+            Varian Cheese<br>
+            Rasa keju gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <div class="produk">
+          <img src="produk12.png" alt="produk lapis 2">
+          <p class="terlaris">Baru</p>
+          <p>Varian Cheese<br>
+            Rasa keju gurih dan legit<br>
+            dengan tekstur lembut.<br><br><span class="highlight">Rp. 40.000/pcs</span></p>
+          <!-- <button>Selengkapnya...</button> -->
+        </div>
+
+        <!-- Tambahkan lebih banyak produk di sini dengan format yang sama -->
+      </div>
+    </section>
+    
+
+    <section class="slide3">
+      <div class="text-reguler">
+        <h2>
+          PENGEN LAPIS KUKUS, TAPI DOMPET BILANG SABAR?<br>
+          INI NIH VERSI HEMATNYA TETAP ENAK!<br>
+          HARGA BERSAHABAT, RASA TETAP BERSAHAJA.
+        </h2>
+      </div>
+    
+      <div id="regulerCarousel" class=" carousel reguler" data-bs-ride="carousel">
+        
+        <!-- Indikator titik -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#regulerCarousel" data-bs-slide-to="6" aria-label="Slide 0"></button>
+        </div>
+    
+        <div class="carousel-inner">
+          <!-- Slide pertama -->
+  
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis1.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+             
+              <div class=" col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis2.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Slide kedua -->
+         
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis3.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+             
+              <div class=" col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis4.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis5.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+             
+              <div class=" col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis6.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis7.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+             
+              <div class=" col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis8.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis9.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+             
+              <div class=" col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis10.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis11.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+             
+              <div class=" col-md-5">
+                <div class="produk-reguler text-center">
+                  <img src="regulerlapis12.png" class="d-block mx-auto" alt="Lapis Kukus Tugu Malang">
+                  <p>Lapis Kukus Tugu Malang<br><span class="highlight">Rp. 40.000/pcs</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Navigasi panah -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#regulerCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#regulerCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
